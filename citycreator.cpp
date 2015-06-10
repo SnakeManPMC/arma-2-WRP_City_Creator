@@ -541,14 +541,6 @@ void CityCreator::Write_Objects(FILE *output)
 
         for (int cx = 0; cx < NumberOfObjects; cx++)
         {
-		// this doesn't work for 4096 * 20 which is larger than the 32767 or whatever RAND_MAX is :(
-		// also the 50+ and -100 is because we don't want objects really close to the edges of map.
-                //dDirX = 50 + (float) ( (MapSize * CellSize - 100) * qrand() / (RAND_MAX + 1.0));
-                //dDirZ = 50 + (float) ( (MapSize * CellSize - 100) * qrand() / (RAND_MAX + 1.0));
-
-		// with help from Mikero, this is now fixed, to support all kinds of large numbers :)
-		//dDirX = ( (qrand() * qrand()) % (MapSize * CellSize));
-		//dDirZ = ( (qrand() * qrand()) % (MapSize * CellSize));
 		dDirX = RandomCoordinate(MapSize, CellSize);
 		dDirZ = RandomCoordinate(MapSize, CellSize);
 
